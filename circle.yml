@@ -12,6 +12,7 @@ dependencies:
     - chmod a+rx ~/pkill2.sh
     ### ------- DO NOT EDIT -------
 
+
     - git submodule init
     - git submodule sync
     - git submodule update
