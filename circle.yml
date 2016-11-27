@@ -5,6 +5,7 @@ machine:
     version: oraclejdk8
   environment:
     MAKEFLAGS: "j4"
+    DEBIAN_FRONTEND: noninteractive
 dependencies:
   pre:
     ### ------- DO NOT EDIT -------
@@ -12,6 +13,7 @@ dependencies:
     - chmod a+rx ~/pkill2.sh
     ### ------- DO NOT EDIT -------
 
+    - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D
 
     - git submodule init
     - git submodule sync
