@@ -22,7 +22,7 @@ make --quiet && make --quiet check
 sudo make --quiet install
 
 date
-./dist-build/android-arm.sh > /dev/null
+./dist-build/android-arm.sh # > /dev/null
 date
 ./dist-build/android-armv7-a.sh > /dev/null
 date
