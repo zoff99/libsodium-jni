@@ -46,3 +46,7 @@ gcc -I../libsodium/src/libsodium/include -I${JAVA_HOME}/include -I${JAVA_HOME}/i
 sudo rm -f $destlib/$jnilib  
 sudo cp $jnilib $destlib
 
+
+echo "Android??"
+ndk-build
+
