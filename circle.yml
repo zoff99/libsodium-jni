@@ -1,0 +1,46 @@
+machine:
+  timezone:
+    Europe/Vienna
+  java:
+    version: oraclejdk8
+  environment:
+    MAKEFLAGS: "j4"
+dependencies:
+  pre:
+    ### ------- DO NOT EDIT -------
+    - printf '#! /bin/bash\n pgrep -l "$1"\n kill -9 $(pgrep "$1" | grep -v ^$$\$)\n pgrep -l -f "$1"\n' > ~/pkill2.sh
+    - chmod a+rx ~/pkill2.sh
+    ### ------- DO NOT EDIT -------
+
+    - git submodule init
+    - git submodule sync
+    - git submodule update
+
+    - sudo apt-get update
+    - sudo sudo apt-get install build-essential libtool autotools-dev automake checkinstall check git yasm
+    - sudo apt-get install libopus-dev libvpx-dev pkg-config
+    # - sudo apt-get install libsodium13 libsodium-dev
+
+    ### ------- get libsodium -------
+    - mkdir ~/libsodium
+    - cd ~/libsodium/ ; git clone https://github.com/jedisct1/libsodium.git
+    - cd ~/libsodium/ ; cd libsodium/ ; git checkout tags/1.0.11
+    - cd ~/libsodium/ ; cd libsodium/ ; ./autogen.sh
+    - cd ~/libsodium/ ; cd libsodium/ ; ./configure && make check
+    - cd ~/libsodium/ ; cd libsodium/ ; sudo bash -c "printf 'y\naa\n\n' | checkinstall --install --pkgname libsodium --pkgversion 1.0.0 --nodoc --deldesc=no --pkglicense='GPL2'"
+    - cd ~/libsodium/ ; cd libsodium/ ; sudo ldconfig
+    ### ------- get libsodium -------
+
+##### ------------ BUILD ------------
+    - ./dependencies-linux.sh
+    - ./build.sh
+    - ./build-kaliumjni.sh
+    - ./build-libsodiumjni.sh
+##### ------------ BUILD ------------
+
+test:
+  pre:
+    - echo "dummy"
+  override:
+    - echo "dummy"
+
