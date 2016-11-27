@@ -25,13 +25,13 @@ dependencies:
     # - sudo apt-get install libsodium13 libsodium-dev
 
     ### ------- get libsodium -------
-    - mkdir ~/libsodium
-    - cd ~/libsodium/ ; git clone https://github.com/jedisct1/libsodium.git
-    - cd ~/libsodium/ ; cd libsodium/ ; git checkout tags/1.0.11
-    - cd ~/libsodium/ ; cd libsodium/ ; ./autogen.sh
-    - cd ~/libsodium/ ; cd libsodium/ ; ./configure && make check
-    - cd ~/libsodium/ ; cd libsodium/ ; sudo bash -c "printf 'y\naa\n\n' | checkinstall --install --pkgname libsodium --pkgversion 1.0.0 --nodoc --deldesc=no --pkglicense='GPL2'"
-    - cd ~/libsodium/ ; cd libsodium/ ; sudo ldconfig
+    #- mkdir ~/libsodium
+    #- cd ~/libsodium/ ; git clone https://github.com/jedisct1/libsodium.git
+    #- cd ~/libsodium/ ; cd libsodium/ ; git checkout tags/1.0.11
+    #- cd ~/libsodium/ ; cd libsodium/ ; ./autogen.sh
+    #- cd ~/libsodium/ ; cd libsodium/ ; ./configure && make check
+    #- cd ~/libsodium/ ; cd libsodium/ ; sudo bash -c "printf 'y\naa\n\n' | checkinstall --install --pkgname libsodium --pkgversion 1.0.0 --nodoc --deldesc=no --pkglicense='GPL2'"
+    #- cd ~/libsodium/ ; cd libsodium/ ; sudo ldconfig
     ### ------- get libsodium -------
 
 ##### ------------ BUILD ------------
@@ -40,6 +40,9 @@ dependencies:
     - ./build-kaliumjni.sh
     - ./build-libsodiumjni.sh
 ##### ------------ BUILD ------------
+
+    - find ../ -name 'libsodiumjni.so' ; exit 0
+    - find ../ -name 'libkaliumjni.so' ; exit 0
 
 test:
   pre:
