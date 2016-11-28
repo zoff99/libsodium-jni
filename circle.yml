@@ -43,8 +43,9 @@ dependencies:
 
     # - find ../ -name 'libsodiumjni.so' ; exit 0
     - find ../ -name 'libkaliumjni.so' ; exit 0
-    - find /usr/lib/ -name 'libsodiumjni.so' ; exit 0
-    - find / -name 'libsodiumjni.so' ; exit 0
+    - find / -name 'libkaliumjni.so' ; exit 0
+    #- find /usr/lib/ -name 'libsodiumjni.so' ; exit 0
+    #- find / -name 'libsodiumjni.so' ; exit 0
 
     - cp -av /usr/lib/libsodiumjni.so $CIRCLE_ARTIFACTS/ ; exit 0
     - cp -av /home/ubuntu/libsodium-jni/build/outputs/lint-results-debug.html $CIRCLE_ARTIFACTS/ ; exit 0
