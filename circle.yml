@@ -38,12 +38,12 @@ dependencies:
     - ./dependencies-linux.sh
     - ./build.sh
     - ./build-kaliumjni.sh
-    # - ./build-libsodiumjni.sh
+    - ./build-libsodiumjni.sh
 ##### ------------ BUILD ------------
 
     # - find ../ -name 'libsodiumjni.so' ; exit 0
-    - find ../ -name 'libkaliumjni.so' ; exit 0
-    - find / -name 'libkaliumjni.so' ; exit 0
+    - find ../ -name 'libkaliumjni.so' 2>/dev/null ; exit 0
+    - find / -name 'libkaliumjni.so' 2>/dev/null ; exit 0
     #- find /usr/lib/ -name 'libsodiumjni.so' ; exit 0
     #- find / -name 'libsodiumjni.so' ; exit 0
 
